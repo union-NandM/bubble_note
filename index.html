@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bubble Note</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body id="root">
+    <input type="checkbox" id="theme_logger" />
+    <label class="theme_changer">
+      <label class="switch_groove" for="theme_logger"></label>
+      <label class="switch" for="theme_logger"></label>
+    </label>
+    <div id="app">
+      <input type="text" name="text" id="text" autocomplete="off" />
+      <button id="register">register</button>
+      <ul id="posts"></ul>
+      <div id="focus_button">
+        <div id="vert_line"></div>
+        <div id="horz_line"></div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

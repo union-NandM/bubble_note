@@ -1,0 +1,230 @@
+@-webkit-keyframes slideout {
+  0% {
+    transform: translateX(100vw);
+  }
+  10% {
+    transform: translateX(100vw);
+  }
+  30% {
+    transform: translateX(calc(100vw - 50px));
+  }
+  100% {
+    transform: translateX(200vw);
+  }
+}
+
+@keyframes slideout {
+  0% {
+    transform: translateX(100vw);
+  }
+  10% {
+    transform: translateX(100vw);
+  }
+  30% {
+    transform: translateX(calc(100vw - 50px));
+  }
+  100% {
+    transform: translateX(200vw);
+  }
+}
+
+@-webkit-keyframes slidein {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes slidein {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Courier New", sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: #282828;
+}
+
+ul {
+  list-style: none;
+}
+
+#register {
+  display: none;
+}
+
+#text {
+  display: block;
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, -100px);
+  transition: transform 0.1s ease;
+  border: none;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  color: #eee;
+  z-index: 10;
+}
+
+#text:focus {
+  transform: translate(-50%, 0);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  outline: none;
+}
+
+#app {
+  height: 100%;
+  max-width: min(80vw, 600px);
+  margin: 0 auto;
+  border: rgba(0, 0, 0, 0) solid 1px;
+  padding: 70px 0;
+}
+
+li > input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  max-width: 100%;
+  right: 100vw;
+}
+
+li > input[type="checkbox"] {
+  display: inline-block;
+}
+
+li > span {
+  display: inline-block;
+  max-width: 90%;
+  overflow-wrap: break-word;
+  color: #eee;
+  transition: color 0.3s ease;
+}
+
+.slidein {
+  -webkit-animation: slidein 0.3s ease, background-color 0.3s ease;
+  animation: slidein 0.3s ease, background-color 0.3s ease;
+  transform: translateX(100vw);
+}
+
+.slideout {
+  -webkit-animation: slideout 0.3s ease, background-color 0.3s ease;
+  animation: slideout 0.3s ease, background-color 0.3s ease;
+}
+
+#focus_button {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  background-color: #151515;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3),
+    inset 1px 1px 2px 0px rgba(255, 255, 255, 0.15);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+#focus_button > div {
+  position: absolute;
+  background-color: #eee;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#vert_line {
+  width: 3px;
+  height: 30px;
+}
+#horz_line {
+  width: 30px;
+  height: 3px;
+}
+
+#theme_logger {
+  display: none;
+}
+
+.theme_changer {
+  display: block;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  height: 30px;
+  width: 50px;
+}
+
+.switch_groove {
+  position: absolute;
+  display: block;
+  background-color: #444;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 10px;
+  border-radius: 5px;
+  box-shadow: inset 1px 1px 2px 1px rgba(0, 0, 0, 0.3);
+}
+.switch {
+  display: block;
+  position: absolute;
+  background-color: #444;
+  left: 50%;
+  top: 50%;
+  transform: translate(-20%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.3),
+    inset 1px 1px 1px 0px rgba(255, 255, 255, 0.3);
+}
+
+#theme_logger:checked ~ .theme_changer > .switch {
+  background-color: #bbb;
+  transform: translate(-80%, -50%);
+}
+#theme_logger:checked ~ .theme_changer > .switch_groove {
+  background-color: #bbb;
+}
+
+.light * {
+  color: #333;
+}
+.light {
+  background-color: #eee;
+}
+.light #focus_button {
+  background-color: #777;
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.3),
+    inset 1px 1px 2px 0px rgba(255, 255, 255, 0.5);
+}
